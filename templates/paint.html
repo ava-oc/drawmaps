@@ -1,0 +1,172 @@
+{% include "base.html" %}
+{% block content %}
+
+
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link href="static/bootstrap.min.css" rel="stylesheet">
+    
+    <body onload="pencil(), get_random_country()">
+
+    
+    
+    
+    
+    
+    <h3 id="country-name" class="text-center">
+        Draw country:
+    </h3>
+
+
+    <div class="media">
+    </div>
+
+
+    <div class="media">
+            <canvas id="paint" width="750" height="450" style="border: 5px solid #000000;"></canvas>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-3">
+            <button type="button" class="btn btn-success" id="toggle_button" onclick="eraser_toggle()">
+                Eraser
+            </button> 
+        </div>
+        <div class="col-md-3">
+            <button type="button" class="btn btn-success" id="reset" onclick="reset()">
+                Reset
+            </button>
+        </div>
+        <div class="col-md-3">
+            <button type="button" class="btn btn-success active" id="result" onclick="show_country()">
+                normal/advanced
+            </button>
+        </div>
+        <div class="col-md-3">
+             
+            <button type="button" class="btn btn-block btn-danger" onclick="get_random_country()">
+                Submit
+            </button>
+        </div>
+    </div>
+    <table class="table table-sm table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    #
+                </th>
+                <th>
+                    Product
+                </th>
+                <th>
+                    Payment Taken
+                </th>
+                <th>
+                    Status
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    1
+                </td>
+                <td>
+                    TB - Monthly
+                </td>
+                <td>
+                    01/04/2012
+                </td>
+                <td>
+                    Default
+                </td>
+            </tr>
+            <tr class="table-active">
+                <td>
+                    1
+                </td>
+                <td>
+                    TB - Monthly
+                </td>
+                <td>
+                    01/04/2012
+                </td>
+                <td>
+                    Approved
+                </td>
+            </tr>
+            <tr class="table-success">
+                <td>
+                    2
+                </td>
+                <td>
+                    TB - Monthly
+                </td>
+                <td>
+                    02/04/2012
+                </td>
+                <td>
+                    Declined
+                </td>
+            </tr>
+            <tr class="table-warning">
+                <td>
+                    3
+                </td>
+                <td>
+                    TB - Monthly
+                </td>
+                <td>
+                    03/04/2012
+                </td>
+                <td>
+                    Pending
+                </td>
+            </tr>
+            <tr class="table-danger">
+                <td>
+                    4
+                </td>
+                <td>
+                    TB - Monthly
+                </td>
+                <td>
+                    04/04/2012
+                </td>
+                <td>
+                    Call in to confirm
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div id="mouse-circle"></div>
+    <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+    <script src=" {{ url_for('static', filename='script.js') }}"></script>
+    <script src=" {{ url_for('static', filename='jquery.min.js') }}"></script>
+    <script src=" {{ url_for('static', filename='bootstrap.min.js') }}"></script>
+    <script src=" {{ url_for('static', filename='scripts.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-array@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-geo@3"></script>
+    <script>
+
+    const projection = d3.geoEquirectangular();
+    const path = d3.geoPath(projection);
+
+    </script>
+    <!-- <script data-main="scripts/main" src="https://requirejs.org/docs/release/2.3.6/minified/require.js"></script> -->
+
+    <!-- loading data in a weird way -->
+    <script src="{{ url_for('static', filename='country_shapes.js') }}"></script>
+{% endblock %}
