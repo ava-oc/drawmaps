@@ -283,7 +283,6 @@ function find_data(country_name){
 function show_country(){
   
   var br_data = find_data(country_name);
-  console.log("aaaaaaaaaaaaaaaaaaaaaa");
   console.log(br_data);
   ctx.beginPath();
   ctx.moveTo(br_data[0][0], br_data[0][1]);
